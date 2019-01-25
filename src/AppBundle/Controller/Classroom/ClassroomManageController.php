@@ -50,22 +50,27 @@ class ClassroomManageController extends BaseController
         $yesterdayTimeStart = strtotime(date('Y-m-d', $currentTime - 24 * 3600));
         $yesterdayTimeEnd = strtotime(date('Y-m-d', $currentTime));
 
-        $todayFinishedTaskNum = $this->getTaskResultService()->countTaskResults(
-            array(
-                'courseIds' => $courseIds,
-                'finishedTime_GE' => $todayTimeStart,
-                'finishedTime_LE' => $todayTimeEnd,
-                'status' => 'finish',
-            )
-        );
-        $yesterdayFinishedTaskNum = $this->getTaskResultService()->countTaskResults(
-            array(
-                'courseIds' => $courseIds,
-                'finishedTime_GE' => $yesterdayTimeStart,
-                'finishedTime_LE' => $yesterdayTimeEnd,
-                'status' => 'finish',
-            )
-        );
+        $todayFinishedTaskNum = 0;
+        $yesterdayFinishedTaskNum = 0;
+
+        if (!empty($courseIds)) {
+            $todayFinishedTaskNum = $this->getTaskResultService()->countTaskResults(
+                array(
+                    'courseIds' => $courseIds,
+                    'finishedTime_GE' => $todayTimeStart,
+                    'finishedTime_LE' => $todayTimeEnd,
+                    'status' => 'finish',
+                )
+            );
+            $yesterdayFinishedTaskNum = $this->getTaskResultService()->countTaskResults(
+                array(
+                    'courseIds' => $courseIds,
+                    'finishedTime_GE' => $yesterdayTimeStart,
+                    'finishedTime_LE' => $yesterdayTimeEnd,
+                    'status' => 'finish',
+                )
+            );
+        }
 
         $todayThreadCount = $this->getThreadService()->searchThreadCount(
             array(
@@ -758,8 +763,8 @@ class ClassroomManageController extends BaseController
         $cashRate = $this->getCashRate();
 
         foreach ($courses as $course) {
-            $coinPrice += $course['price'] * $cashRate;
-            $price += $course['price'];
+            $coinPrice += $course['originPrice'] * $cashRate;
+            $price += $course['originPrice'];
         }
 
         $courseNum = count($courses);
