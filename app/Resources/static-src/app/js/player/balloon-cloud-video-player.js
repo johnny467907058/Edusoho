@@ -82,11 +82,15 @@ class BalloonCloudVideoPlayer extends Emitter {
       });
     }
 
-    const remeberLastPos = self.options.customPos ? true : false;
+    const remeberLastPos = (self.options.customPos && self.options.remeberLastPos) ? true : false;
+
     self.options.customPos = self.options.customPos.toString();
 
     extConfig = Object.assign(extConfig, {
       id: $(self.options.element).attr('id'),
+      sdkBaseUri: app.cloudSdkBaseUri,
+      disableDataUpload: app.cloudDisableLogReport,
+      disableSentry: app.cloudDisableLogReport,
       disableControlBar: self.options.disableControlBar,
       disableProgressBar: self.options.disableProgressBar,
       playlist: self.options.url,
@@ -95,6 +99,7 @@ class BalloonCloudVideoPlayer extends Emitter {
       videoHeaderLength: self.options.videoHeaderLength,
       autoplay: self.options.autoplay
     });
+
     var player = new VideoPlayerSDK(extConfig);
 
     player.on('ready', function(e) {

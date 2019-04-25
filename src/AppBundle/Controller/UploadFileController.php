@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Common\MessageToolkit;
 use Biz\CloudPlatform\Service\AppService;
 use Biz\Content\Service\FileService;
 use Biz\Course\Service\CourseService;
@@ -69,16 +70,22 @@ class UploadFileController extends BaseController
 
         $this->getLogService()->info('upload_file', 'download', "文件Id #{$fileId}");
 
-        if ($file['storage'] == 'cloud') {
-            return $this->downloadCloudFile($file, $ssl);
+        if ('cloud' == $file['storage']) {
+            return $this->downloadCloudFile($request, $file, $ssl);
         } else {
             return $this->downloadLocalFile($request, $file);
         }
     }
 
-    protected function downloadCloudFile($file, $ssl)
+    protected function downloadCloudFile(Request $request, $file, $ssl)
     {
         $file = $this->getUploadFileService()->getDownloadMetas($file['id'], $ssl);
+
+        if (!empty($file['error'])) {
+            $this->setFlashMessage('danger', MessageToolkit::convertMessageToKey($file['error']));
+
+            return $this->redirect($request->server->get('HTTP_REFERER'));
+        }
 
         return $this->redirect($file['url']);
     }
@@ -112,7 +119,7 @@ class UploadFileController extends BaseController
 
         $conditions['currentUserId'] = $user['id'];
 
-        if ($conditions['source'] == 'upload') {
+        if ('upload' == $conditions['source']) {
             $conditions['createdUserId'] = $user['id'];
         }
 
@@ -151,7 +158,7 @@ class UploadFileController extends BaseController
         if (array_key_exists('targetId', $conditions) && !empty($conditions['targetId'])) {
             $course = $this->getCourseService()->getCourse($conditions['targetId']);
 
-            if ($course['parentId'] > 0 && $course['locked'] == 1) {
+            if ($course['parentId'] > 0 && 1 == $course['locked']) {
                 $conditions['targetId'] = $course['parentId'];
             }
         }

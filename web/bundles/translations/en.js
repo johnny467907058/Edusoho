@@ -359,8 +359,8 @@ t.add("coin.invite_code_validate_error_hint", "The invitate code must be 5 muber
 t.add("coin.invite_url_copy_success_hint", "The link was copied successfully", "js", "en");
 t.add("course.buy.discount_hint", "Dicounted", "js", "en");
 t.add("course.buy.price_free_hint", "Go study", "js", "en");
-t.add("course.chapter", "%chapter_name% %number% : %title%", "js", "en");
-t.add("course.unit", "%part_name% %number% : %title%", "js", "en");
+t.add("course.chapter", "%chapter_name% %number% %colon% %title%", "js", "en");
+t.add("course.unit", "%part_name% %number% %colon% %title%", "js", "en");
 t.add("course.lesson", "%part_name% %number% : %title%", "js", "en");
 t.add("course.catalogue.task_status.task", "%taskName%.%taskNumber%:%taskTitle%", "js", "en");
 t.add("course.thread_replay_failed_hint", "Posted reply failed, please try again", "js", "en");
@@ -498,6 +498,7 @@ t.add("course.question_marker.view_analysis", "view analysis", "js", "en");
 t.add("course.question_marker.back_to_questions", "back to questions", "js", "en");
 t.add("classroom.manage.tag_required_hint", "Please enter a tag", "js", "en");
 t.add("classroom.manage.delete_course_hint", "Do you want to remove the course from the class?", "js", "en");
+t.add("classroom.manage.delete_course_hint_title", "Course removal", "js", "en");
 t.add("classroom.manage.delete_course_success_hint", "The course was removed successfully", "js", "en");
 t.add("classroom.manage.delete_course_fail_hint", "Course removal failed", "js", "en");
 t.add("classroom.manage.expiry_mode_days_error_hint", "Please enter the number of valid days", "js", "en");
@@ -632,6 +633,7 @@ t.add("validate.before.message", "The start date should be earlier than the end 
 t.add("validate.after.message", "The end date should be later than the start date", "js", "en");
 t.add("validate.feature.message", "The deadline for purchase is after the current time", "js", "en");
 t.add("validate.valid_qq_input.message", "Please enter the correct QQ number", "js", "en");
+t.add("validate.valid_weixin_input.message", "Please enter the correct wecaht number", "js", "en");
 t.add("validate.valid_mobile_input.message", "please enter a valid phone number", "js", "en");
 t.add("validate.valid_chinese_input.message", "Must be Chinese characters", "js", "en");
 t.add("validate.chinese_limit.message", "The length must be less than or equal to {0} characters, one for 2 characters", "js", "en");

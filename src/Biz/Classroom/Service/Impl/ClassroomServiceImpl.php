@@ -205,12 +205,11 @@ class ClassroomServiceImpl extends BaseService implements ClassroomService
         $classroom = $this->fillOrgId($classroom);
         $userId = $this->getCurrentUser()->getId();
         $classroom['creator'] = $userId;
-        $classroom['teacherIds'] = array($userId);
+        $classroom['teacherIds'] = array();
         $classroom['expiryMode'] = 'forever';
         $classroom['expiryValue'] = 0;
 
         $classroom = $this->getClassroomDao()->create($classroom);
-        $this->becomeTeacher($classroom['id'], $userId);
 
         $this->dispatchEvent('classroom.create', $classroom);
 
@@ -536,11 +535,10 @@ class ClassroomServiceImpl extends BaseService implements ClassroomService
      */
     public function updateClassroomTeachers($id)
     {
-        $classroom = $this->getClassroom($id);
         $courses = $this->findActiveCoursesByClassroomId($id);
 
         $oldTeacherIds = $this->findTeachers($id);
-        $newTeacherIds = array($classroom['creator']);
+        $newTeacherIds = array();
 
         foreach ($courses as $key => $value) {
             $teachers = $this->getCourseMemberService()->findCourseTeachers($value['id']);
@@ -586,6 +584,8 @@ class ClassroomServiceImpl extends BaseService implements ClassroomService
                 $this->getClassroomMemberDao()->update($deleteMembers[$userId]['id'], $deleteMembers[$userId]);
             }
         }
+
+        $this->updateClassroom($id, array('teacherIds' => array_values($newTeacherIds)));
     }
 
     public function publishClassroom($id)
@@ -1755,7 +1755,10 @@ class ClassroomServiceImpl extends BaseService implements ClassroomService
 
     public function recommendClassroom($id, $number)
     {
-        $this->tryAdminClassroom($id);
+        $user = $this->getCurrentUser();
+        if (!$user->hasPermission('admin_classroom_set_recommend')) {
+            $this->createNewException(UserException::PERMISSION_DENIED());
+        }
 
         if (!is_numeric($number)) {
             $this->createNewException(ClassroomException::RECOMMEND_REQUIRED_NUMERIC());
@@ -1775,7 +1778,10 @@ class ClassroomServiceImpl extends BaseService implements ClassroomService
 
     public function cancelRecommendClassroom($id)
     {
-        $this->tryAdminClassroom($id);
+        $user = $this->getCurrentUser();
+        if (!$user->hasPermission('admin_classroom_cancel_recommend')) {
+            $this->createNewException(UserException::PERMISSION_DENIED());
+        }
 
         $classroom = $this->getClassroomDao()->update(
             $id,
@@ -1928,11 +1934,16 @@ class ClassroomServiceImpl extends BaseService implements ClassroomService
     {
         $course = $this->getCourseService()->getCourse($courseId);
 
+        $courses = $this->getClassroomCourseDao()->search(array('classroomId' => $id), array('seq' => 'desc'), 0, 1);
+        $maxSeqCourse = empty($courses) ? array() : $courses[0];
+        $seq = empty($maxSeqCourse) ? 1 : $maxSeqCourse['seq'] + 1;
+
         $classroomCourse = array(
             'classroomId' => $id,
             'courseId' => $courseId,
             'courseSetId' => $course['courseSetId'],
             'parentCourseId' => $course['parentId'],
+            'seq' => $seq,
         );
 
         $classroomCourse = $this->getClassroomCourseDao()->create($classroomCourse);

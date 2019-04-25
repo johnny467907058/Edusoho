@@ -146,6 +146,16 @@ site.bind.unfinished: 未绑定
 site.setting.email_finished: 已设置邮箱
 site.bind.mobile_finished: 已绑定手机
 
+#全局手机号绑定提醒
+site.mobile_bind.ignore: 跳过
+site.mobile_bind.title: 手机号绑定
+site.mobile_bind.login_password: 您的登录密码
+site.mobile_bind.phone_number: 手机号码
+site.mobile_bind.reasons: 绑定手机号的三大理由
+site.mobile_bind.reasons.network_office_regulations: 1、网信办规定，互联网注册用户要提供基于移动电话号码等的真实身份。
+site.mobile_bind.reasons.login_while_third_party_fail: 2、第三方登录出现故障时，仍能用手机号顺利登录，课程学习不受影响。
+site.mobile_bind.reasons.login_while_forget_password: 3、即使您忘记了第三方帐号的密码，仍能使用绑定的手机号和密码登录。
+
 # email 模板
 email.password_reset: >
   亲爱的%nickname%
@@ -1404,6 +1414,11 @@ course.task.preview.buy_tips: 觉得不错？点击购买此课程（%price%）�
 course.task.preview.free_learn_tips: 免费加入学习
 course.task.classroom_sync_job_executing_tips: 班级课程同步中，请稍后发布
 course.thread: 讨论区
+course.thread.question_type.video: 「视频」
+course.thread.question_type.image: 「图片」
+course.thread.question_type.audio: 「语音」
+course.thread.question.title: 这是一个%questionType%问题
+course.thread.question_type.content: 「文字」
 course.thread.empty: >
   还没有%thread%，赶快添加一个吧！
 course.thread.hit_times: %hitNum%次浏览
@@ -1462,6 +1477,8 @@ course.plan_info: >
 # 课程扩展
 course.tab.tasks: '目录'
 course.tab.threads: '话题'
+course.tab.discussions: '话题'
+course.tab.questions: '问题'
 course.tab.notes: '笔记'
 course.tab.material: '资料区'
 course.tab.reviews: '评价'
@@ -1750,7 +1767,7 @@ course.plan_task.live_finish_tips: 直播已经结束
 course.plan_task.converting: 转码中
 course.plan_task.convert_failed: 转码失败
 course.plan_task.which_chapter: >
-  </i>第<span class="number">%chapterNumber%</span>%chapter%：<span class="title">%title%</span>
+  </i>第<span class="number">%chapterNumber%</span>%chapter%<span class="colon">%colon%</span><span class="title">%title%</span>
 course.plan_task.which_lesson: >
   </i>课时<span class="number">%chapterNumber%</span>：<span class="js-lesson-title title">%title%</span>
 course.plan_task.create_btn: 添加
@@ -2930,6 +2947,7 @@ user.settings.security.level: 安全等级
 user.settings.security.high_level: 高
 user.settings.security.middle_level: 中
 user.settings.security.low_level: 低
+user.settings.security.mobile_bind_daily_tips: 网信办规定，互联网注册用户要提供基于移动电话号码等的真实身份，为了您的帐号安全，请绑定手机号。
 user.settings.security.login_password_tips: 经常更改密码有助于保护您的帐号安全
 user.settings.security.pay_password_tips: 用于支付时的二次密码校验，加强账户安全性
 user.settings.security.questions: 安全问题
@@ -3666,6 +3684,8 @@ thread.all_answer: 所有答案
 thread.add_btn: 添加
 thread.browse: 浏览
 thread.empty: 暂无话题
+discussion.empty: 暂无话题
+question.empty: 暂无问题
 thread.status.stick: 置顶
 thread.status.essence: 精华
 thread.status.top: 头条
@@ -6307,6 +6327,7 @@ admin.edu_cloud.edu_video.normal: 标准
 admin.edu_cloud.edu_video.high: 高品质
 admin.edu_cloud.edu_video.play_speed: 倍速播放：
 admin.edu_cloud.edu_video.play_speed_tips: 开启后，云视频任务及音频任务支持倍速播放。
+admin.edu_cloud.edu_video.not_support_play_speed_tips: 目前系统自动生成的直播回放视频、本地视频、第三方视频（腾讯、优酷等）不支持倍速播放。
 admin.edu_cloud.edu_video.auto_play: 云视频自动播放
 admin.edu_cloud.edu_video.video_header: 云视频片头：
 admin.edu_cloud.edu_video.video_header_edit_btn: 编辑
@@ -6542,7 +6563,7 @@ admin.edu_cloud.edu_sms.all_user: 所有用户
 admin.edu_cloud.edu_sms.course_user: 课程用户
 admin.edu_cloud.edu_sms.study_task_tips: 您的课程：《课程名称》－学习任务：《学习任务名称》已发布！链接地址
 admin.edu_cloud.edu_sms.study_task_notify_live: 学习任务发布通知（直播）
-admin.edu_cloud.edu_sms.study_task_notify_normal_course: 学习任务发布通知（普通课程）-
+admin.edu_cloud.edu_sms.study_task_notify_normal_course: 学习任务发布通知（普通课程）
 admin.edu_cloud.edu_sms.study_task_notify_tips: 课程：《课程名称》－学习任务：《学习任务名称》将在［开播时间］开播！链接地址
 admin.edu_cloud.edu_sms.live_broadcast_advance_one_day_notify: 直播开播前通知（提前1天）
 admin.edu_cloud.edu_sms.live_broadcast_advance_one_hour_notify: 直播开播前通知（提前1小时）
@@ -6905,6 +6926,8 @@ admin.user_auth.Term_service_settings.details: 条款内容
 admin.user_auth.Name_setting: 名称设置
 admin.user_auth.Name_setting.user_name: 用户名称
 admin.user_auth.Name_setting.help_block: 注：修改网校字段后，站内相关字段名称都会相应修改为已保存的名称
+admin.user_auth.mobile_bind_tips: >
+  据国家《互联网跟帖评论服务管理规定》，<b>不得向未认证真实身份信息的用户提供跟帖评论服务</b>。这里的跟帖评论服务，是指互联网站、应用程序、互动传播平台以及其他具有新闻舆论属性和社会动员功能的传播平台，以<b>发帖、回复、留言、“弹幕”</b>等方式，为用户提供发表文字、符号、表情、图片、音视频等信息的服务。绑定手机号符合实名认证的规定，为规避法律风险，建议选用<b>“手机注册”</b>。切换成“手机注册”后，对于之前未绑定手机号的用户，会在每日首次登录成功后弹框提醒用户绑定手机号（用户可选择跳过此步骤）。
 admin.login_connect.User_login_restrictions: 用户登录限制
 admin.login_connect.open: 开启
 admin.login_connect.closed: 关闭
@@ -7116,6 +7139,7 @@ admin.developer_setting.debug_label: 调试
 admin.developer_setting.app_center_api_address: 应用中心API地址
 admin.developer_xapi_address: XAPI 推送地址
 admin.developer_face_address: 人脸识别API地址
+admin.developer_push_address: 消息推送API地址
 admin.developer_setting.cloud_api_server_address: 云服务API地址
 admin.developer_setting.address: 地址
 admin.developer_setting.im_api_address: IMAPI地址
@@ -7479,13 +7503,13 @@ admin.coin_model.deduction_tips: >
   <br>
   2、充值虚拟币，需安装<a href="%appCenterUrl%">学习卡</a>或<a href="%appCenterUrl%">账户充值</a>插件
   <br>
-  3、虚拟币用于抵扣：网校以人民币作为支付货币，并可以使用虚拟币进行按比例抵扣(虚拟币类似于淘金币）
+  3、使用方式一旦保存（使用方式和汇率），请勿随意改动
   <br>
-  4、使用方式一旦保存（使用方式和汇率），请勿随意改动
+  4、使用方式的切换会使课程价格根据汇率变动
   <br>
-  5、使用方式的切换会使课程价格根据汇率变动
+  5、如有参加促销活动的课程，修改价格都将有相应的折扣
   <br>
-  6、如有参加促销活动的课程，修改价格都将有相应的折扣
+  6、虚拟币用于抵扣：网校以人民币作为支付货币，并可以使用虚拟币进行按比例抵扣(虚拟币类似于淘金币）
 
 #系统后台运营
 admin.article_setting.name: 频道名称
@@ -7578,7 +7602,7 @@ admin.payment_setting.alipay_api_type.mobile.hint: >
   <a href="%aliApiHelpUrl%" target="_blank">开通教程</a>
 admin.payment_setting.alipay_secret: MD5密钥
 admin.payment_setting.alipay_hint: >
-  登录【支付宝商家服务】-【我的商家服务】-【签约管理】，可<a href="%alipayUrl%" target="_blank">查看PID和MD5秘钥</a>。
+  登录【蚂蚁金服·开放平台】-【服务市场】-【密钥管理】，可<a href="%alipayUrl%" target="_blank">查看PID和MD5秘钥</a>。
 admin.payment_setting.alipay_account: 支付宝账户
 admin.payment_setting.alipay_mobile_payment_hint: 如需开启移动客户端支付，需填写支付宝账户。
 admin.payment_setting.open_alipay_api: 启用支付宝交易关闭接口
@@ -7670,15 +7694,13 @@ admin.coin_model.currency_tips: >
   <br>
   2、充值虚拟币，需安装<a href="%appCenterUrl%">学习卡</a>或<a href="%appCenterUrl%">账户充值</a>插件
   <br>
-  3、虚拟币用于标价：网校以虚拟币作为支付货币，课程和会员以虚拟币标价和结算
+  3、使用方式一旦保存（使用方式和汇率），请勿随意改动
   <br>
-  4、虚拟币用于标价后，移动端仍显示人民币价格（移动端暂不支持虚拟币支付）
+  4、使用方式的切换会使课程价格会根据汇率变动
   <br>
-  5、使用方式一旦保存（使用方式和汇率），请勿随意改动
+  5、如有参加促销活动的课程，修改价格都将有相应的折扣
   <br>
-  6、使用方式的切换会使课程价格会根据汇率变动
-  <br>
-  7、如有参加促销活动的课程，修改价格都将有相应的折扣
+  6、虚拟币用于标价：网校以虚拟币作为支付货币，课程和会员以虚拟币标价和结算
 
 admin.coin_course_set.tips: >
   1元人民币兑换<strong class="text-info">%cashRate%</strong>%coinName%
@@ -8054,6 +8076,8 @@ notification.role: 您被 %who% 设置为“%role%”身份。
 notification.questionRemind: 课程《%courseTitle%》有新问题 %question%，请及时回答。
 notification.discount.reject: 您的打折活动%discount%，未通过管理员审核。
 notification.discount.pass: 您的打折活动%discount%，已通过管理员审核。
+notification.question.post_create: %who% 在 %thread% 回答了你
+notification.question.post_ask: %who% 在 %thread% 追问了你
 
 notification.group-profile.chownout: 您的小组 %group% 被管理员转移给了用户 %who%。
 notification.group-profile.chownin: 您获得了小组 %group% 的管理权限。
@@ -8156,7 +8180,7 @@ activity.live.replay_guid: >
 
 activity.live.default_notice: >
   <p>直播将于%startTimeFormat%开始，于%endTimeFormat%结束<p>
-  (请在课前10分钟内提早进入)
+  (直播开始前120分钟内可进入直播教室)
 
 #积分
 admin.reward_point: 积分
@@ -8357,6 +8381,7 @@ log.module.role: 角色
 log.module.thread: 话题
 log.module.mobile: 手机客户端
 log.module.wap: 微网校
+log.module.push: 推送
 
 log.action.course.create: 创建课程
 log.action.course.update: 修改课程
@@ -8485,6 +8510,8 @@ log.action.system.customerServiceSetting: 客服管理
 log.action.system.setting_userCenter: 用户中心设置
 log.action.system.update_block: 更新编辑区
 log.action.system.update_app_version: 更新版本
+log.action.push.course_thread_create: 提问推送
+log.action.push.course_thread_post_create: 回答推送
 log.action.classroom.create: 新增班级
 log.action.classroom.update: 修改班级
 log.action.classroom.delete: 删除班级
@@ -9431,7 +9458,8 @@ exception.thread.not_found_member: 成员不存在
 exception.thread.access_denied: 该权限或资源不能访问
 exception.rate_limit_max_attempt_reach: 请求发送次数过多，请稍后尝试!
 exception.rate_limit_error_captcha: 图形验证码错误!
-exception.sms.setting_enbale: 云短信相关设置未开启!
+exception.sms.setting_enable: 云短信相关设置未开启!
+exception.setting.attachment.setting_enable: 云附件未开启!
 exception.sms.code_invalid: 短信验证码错误
 exception.sms.type_error: sms类型错误
 exception.sms.send_failed: 发送失败！
@@ -9490,6 +9518,7 @@ exception.user.mobile_or_email_invalid: 非法的手机号或邮箱地址
 exception.user.gender_invalid: 性别不正确
 exception.user.birthday_invalid: 生日格式错误
 exception.user.qq_invalid: qq不正确
+exception.user.weixin_invalid: 微信不正确
 exception.user.site_invalid: 个人空间不正确
 exception.user.weibo_invalid: 微博地址不正确
 exception.user.blog_invalid: 博客地址不正确
@@ -9731,6 +9760,7 @@ exception.app.not_found: App不存在
 exception.app.delete_cache_failed: 删除缓存失败
 exception.app.extract_failed: 无法解压缩安装包！
 exception.role.forbidden_modify: 该权限不能修改！
+exception.role.code_not_all_digital: code不能全为数字
 exception.content.not_found: 内容不存在
 exception.content.type_required: 内容类型不能为空
 exception.content.title_required: 内容标题不能为空
@@ -9801,3 +9831,11 @@ admin.setting_classroom.classroom_operation_mode.allow_show_user_count: 班级�
 
 exception.coupon.receive.failed: 优惠券领取失败
 exception.coupon.plugin.not.installed: 优惠券插件未安装
+exception.coupon.invalid: 优惠券已失效
+exception.coupon.received: 优惠券已领过
+exception.coupon.finished: 优惠券已领完
+exception.educloud.user_disabled_hint: 教育云已被封禁，缴清费用系统自动解禁，教程<a href="http://www.qiqiuyu.com/faq/438/detail" target="_blank">看这里</a>
+
+course.thread.edit_hint: 编辑移动侧的问答能力即将到来，敬请期待！
+course.question.question_background: 问题背景
+course.activity.video.beyond_watch_limit_tip: 您已观看本视频学习任务达到%watchedTime%（%watchLimit%倍视频时长），不能再继续观看。

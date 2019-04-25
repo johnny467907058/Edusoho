@@ -133,9 +133,6 @@ class TestpaperController extends BaseController
         $total = $this->makeTestpaperTotal($testpaper, $questions);
 
         $favorites = $this->getQuestionService()->findUserFavoriteQuestions($testpaperResult['userId']);
-        $favorites = array_map(function ($favorite) {
-            return ArrayToolkit::parts($favorite, array('id', 'questionId'));
-        }, $favorites);
 
         $student = $this->getUserService()->getUser($testpaperResult['userId']);
 
@@ -263,17 +260,17 @@ class TestpaperController extends BaseController
                 return $this->createJsonResponse(array('result' => false, 'message' => '考试未开始，不能提交！'));
             }
 
-            if ($activity['endTime'] && time() > $activity['endTime']) {
-                return $this->createJsonResponse(array('result' => false, 'message' => '考试时间已过，不能再提交！'));
-            }
-
             $formData = $request->request->all();
+
+            if ($activity['startTime'] && $formData['usedTime'] > $activity['length'] * 60) {
+                $formData['usedTime'] = 0;
+            }
 
             $paperResult = $this->getTestpaperService()->finishTest($testpaperResult['id'], $formData);
 
-            if ($activity['finishType'] === 'submit') {
+            if ('submit' === $activity['finishType']) {
                 $response = array('result' => true, 'message' => '');
-            } elseif ($activity['finishType'] === 'score'
+            } elseif ('score' === $activity['finishType']
                 && 'finished' === $paperResult['status']
                 && $paperResult['score'] >= ceil($activity['finishData'] * $activity['ext']['testpaper']['score'])) {
                 $response = array('result' => true, 'message' => '');

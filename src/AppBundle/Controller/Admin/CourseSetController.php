@@ -326,6 +326,7 @@ class CourseSetController extends BaseController
             $courseSet['isLearnedNum'] = $isLearnedNum;
             $courseSet['taskCount'] = $taskCount;
             $courseSet['courseCount'] = $courseCount;
+            $courseSet['studentNum'] = $this->getMemberService()->countStudentMemberByCourseSetId($courseSetId);
         }
 
         return $this->render(
@@ -546,8 +547,8 @@ class CourseSetController extends BaseController
             unset($conditions['title']);
         }
 
-        if (isset($conditions['creator']) && '' == $conditions['creator']) {
-            unset($conditions['creator']);
+        if (isset($conditions['creatorName']) && '' == $conditions['creatorName']) {
+            unset($conditions['creatorName']);
         }
 
         $count = $this->getCourseSetService()->countCourseSets($conditions);

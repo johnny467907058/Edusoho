@@ -367,8 +367,8 @@ coin.invite_url_copy_success_hint: 已复制邀请链接到剪切板，快去分
 course.buy.discount_hint: 已优惠
 course.buy.price_free_hint: 去学习
 
-course.chapter: '第%number%%chapter_name%: %title%'
-course.unit: '第%number%%part_name%: %title%'
+course.chapter: '第%number%%chapter_name%%colon% %title%'
+course.unit: '第%number%%part_name%%colon% %title%'
 course.lesson: '%part_name% %number% : %title%'
 course.catalogue.task_status.task: %taskName%%taskNumber%： %taskTitle%
 
@@ -543,6 +543,7 @@ course.question_marker.back_to_questions: 返回题目
 
 classroom.manage.tag_required_hint: 请输入标签
 classroom.manage.delete_course_hint: 是否要从班级移除该课程？
+classroom.manage.delete_course_hint_title: 移除课程
 classroom.manage.delete_course_success_hint: 课程移除成功
 classroom.manage.delete_course_fail_hint: 课程移除失败
 classroom.manage.expiry_mode_days_error_hint: 请输入有效期天数
@@ -701,6 +702,7 @@ validate.before.message: 开始日期应早于结束日期
 validate.after.message: 结束日期应晚于开始日期
 validate.feature.message: 购买截止时间需在当前时间之后
 validate.valid_qq_input.message: 请输入正确的QQ号
+validate.valid_weixin_input.message: 请输入正确的微信号
 validate.valid_mobile_input.message: 请输入正确的手机号
 validate.valid_chinese_input.message: 必须是中文字
 validate.chinese_limit.message: 长度必须小于等于 {0} 字符,一个中文为2个字符
