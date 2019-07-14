@@ -5262,7 +5262,7 @@ admin.edu_cloud.edu_video.open_radio: Enable
 admin.edu_cloud.edu_video.close_radio: Close
 #TODO trans
 admin.edu_cloud.edu_video.normal_mode_tips: 'Select normal mode, <span class="text-success">new upload</span> video files are played in the mobile browser by default in the common format, which enhances the compatibility of video lessons with mobile browsers;<br/> <span class="text-danger">But the normal mode video is at risk of being stolen in some cases, please be cautious. </span>'
-admin.edu_cloud.edu_video.encryption_mode_tips: 'Choosing an encryption mode can greatly improve the security of the video, but it may cause the video class to not play properly on some old mobile browsers.<br/>Mobile browsers that do not support playback (including but not limited to): Android QQ browser, Firefox browser, Android UC browser, Android quark browser, 360 browser, 360, Huawei, Samsung, Qihoo, one plus mobile phone Bring your own browser.'
+admin.edu_cloud.edu_video.encryption_mode_tips: 'Choosing an encryption mode can greatly improve the security of the video, but it may cause the video class to not play properly on some old mobile browsers.'
 
 admin.edu_cloud.edu_video.transcode_quality: 'Transcode quality'
 admin.edu_cloud.edu_video.transcode_quality_low: "Smooth <span class = \"text-muted\"> (for PPT) </ span>\n"
@@ -5858,6 +5858,10 @@ admin.setting_course.course_operation_mode: 'Course operation mode'
 admin.setting_course.course_operation_mode.free_try_view: 'Free preview / free task allows users who are not login to watch'
 admin.setting_course.course_operation_mode.free_try_view.help_block: 'If this setting is allowed, users not login (visitors) can watch the free preview or free tasks'
 admin.setting_course.course_operation_mode.allow_show_user_count: 'The number of student allowed to display in the course'
+admin.setting_course.course_operation_mode.course_set_number: 'Display the number of course covers'
+admin.setting_course.course_operation_mode.course_set_number.help_block: 'The administrator can control the number of people on the cover of the course'
+admin.setting_course.cover_number.student_num: 'Joined number'
+admin.setting_course.cover_number.hit_num: 'Hit number'
 admin.setting_course.customer_chapter_section_name: 'Custom chapter name'
 admin.setting_course.customer_task_name: 'Custom task name'
 admin.setting_course.customer_chapter_section_name.tips: 系统中的"章"、"节"会被设置的名称所替代
@@ -5896,7 +5900,7 @@ admin.setting_wechat_auth.wechat_auth_login_hint: >
   Please fill in the service number AppID and service number AppSecretMP file verification code in the form on the right.
 admin.setting_wechat_auth.wechat_notification_hint: >
   After the activation, the user who binds WeChat and pays attention to the service number can receive the WeChat service number template message.<br>
-  Please open the webpage scan code login and the authorized login in WeChat, and fill in the service number QR code in the form on the right.
+  Please enable web scan code login and authorized login on WeChat first, and <span class="text-danger">enable service number template message pluginin WeChat background</span> .
 admin.setting_wechat_auth.wechat_pay_hint: >
   After opening, it can be used on the PC side, WeChat APP, WAP to select WeChat payment, only support configuration<a target="_blank" href="http://kf.qq.com/faq/120911VrYVrA150905zeYjMZ.html"> public account payment </a>to pay。<br>
   Please fill in the service number AppID, service number AppSecret, MP file verification code, merchant number and WeChat merchant platform API key in the form on the right.
@@ -8697,6 +8701,11 @@ wechat.notification.status.finish: Send Finish
 wechat.notification.status.sending: Sending
 wechat.notification.cloud.tips: You have not yet opened an education cloud and cannot use the WeChat service number notification function
 wechat.notification.cloud_open: Go to the opening
+wechat.notification.record_number_tips: Students must be bound to WeChat and follow the service number to receive notifications, so the actual number sent will be less than expected.
+wechat.notification.template_open_error: The template failed to open. It may be that the service number template message plug-in is not enabled or the network school IP address is not added to the WeChat background IP whitelist. Please go to <a href="http://www.qiqiuyu.com/faq/878/detail" target ="_blank">View the tutorial</a>
+wechat.notification.service_not_open: WeChat service number notification is not enabled
+wechat.notification.empty_token: Get WeChat information error
+wechat.notification.template_not_exist: Template does not exist
 
 # 微信通知模板
 wechat.notification.template.live_start: Hello, classmate.<br>It is hereby notified that the [course name] you are enrolled in will start in the [live class start time].<br>Don't be late.

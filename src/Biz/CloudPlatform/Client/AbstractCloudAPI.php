@@ -5,6 +5,7 @@ namespace Biz\CloudPlatform\Client;
 use Biz\System\Service\SettingService;
 use Psr\Log\LoggerInterface;
 use Topxia\Service\Common\ServiceKernel;
+use AppBundle\Common\Exception\UnexpectedValueException;
 
 class AbstractCloudAPI
 {
@@ -187,11 +188,6 @@ class AbstractCloudAPI
             throw new CloudAPIIOException("Connect api server timeout (url: {$url}).");
         }
 
-        if (empty($curlinfo['starttransfer_time'])) {
-            $this->logger && $this->logger->error("[{$requestId}] API_TIMEOUT", $context);
-            throw new CloudAPIIOException("Request api server timeout (url:{$url}).");
-        }
-
         if ($curlinfo['http_code'] >= 500) {
             $this->logger && $this->logger->error("[{$requestId}] API_RESOPNSE_ERROR", $context);
             throw new CloudAPIIOException("Api server internal error (url:{$url}).");
@@ -216,7 +212,7 @@ class AbstractCloudAPI
         $matched = preg_match('/:\/\/.*?(\/.*)$/', $url, $matches);
 
         if (!$matched) {
-            throw new \RuntimeException('Make AuthToken Error.');
+            throw new UnexpectedValueException('Make AuthToken Error.');
         }
 
         $text = $matches[1]."\n".json_encode($params)."\n".$this->secretKey;
