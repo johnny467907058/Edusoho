@@ -48,6 +48,7 @@ site.message.warning: Warning
 site.message.error: Error
 site.power_by: howzhi.com
 site.default.must: Must
+site.default.and: And
 site.default.student: Student
 site.default.classroom: Class
 site.default.reviewing: Reviewed
@@ -1431,10 +1432,28 @@ course.question_manage.manage.score: Score
 course.question_manage.manage.steom_tips: "Click the button <span style=\"color:red\">[ ]</span>  to insert a blank. You can also input manually, for example “This year is [[2014]]”, the answer is “2014”\n"
 course.question_manage.manage.material: Material
 course.question_manage.edit: Edit
+course.question_manage.import.btn: Import question
+course.question_manage.import.modal_title: Import question
+course.question_manage.import.new_hint: New workflow, More efficient
+course.question_manage.import.drag_document_hint: Drag document to here
+course.question_manage.import.docx_support_hint: Only support docx,
+course.question_manage.import.download_template: Download template
+course.question_manage.import.doc_to_docx_hint: How doc convert to docx?
+course.question_manage.import.upload_document: Upload
+course.question_manage.import.reupload_document: Re-Upload
+course.question_manage.import.uploading: Uploading...
+course.question_manage.import.use_old_template: Use Old Template
+course.question_manage.impport.cancle: Cancel
+course.question_manage.import.docx_support_hint2: Please upload .docx Word file
+course.question_manage.import.doc_to_docx_hint2: <a href="http://www.qiqiuyu.com/faq/880/detail" target="_blank">Click here</a>to see how doc convert to docx
+course.question_manage.import.rule: Import rule description
+course.question_manage.export_hint: (question export only support new template now)
+course.question_manage.export_btn: export question
 course.testpaper_manage: Testpapers
 course.testpaper_manage.testpaper: Testpaper
 course.testpaper_manage.content_title: Testpaper
 course.testpaper_manage.create_btn: Add
+course.testpaper_manage.import_btn: Import
 course.testpaper_manage.name: 'Paper Title'
 course.testpaper_manage.status: Status
 course.testpaper_manage.statistics: 'Questions&Score'
@@ -1460,6 +1479,44 @@ course.testpaper_manage.testpaper_quoted_close_tips: 'It''s used in %taskName%, 
 course.testpaper_manage.edit_btn: 'Edit the test paper info'
 course.testpaper_manage.manage_btn: 'Edit the test questions'
 course.testpaper_manage.repead_btn: Re-generate
+course.testpaper_manage.export: Export
+course.testpaper_manage.import: Import
+course.testpaper_manage.import.re_edit.add_option: Add Option
+course.testpaper_manage.import.re_edit.upload_stem_attachment: Upload Stem Attachment
+course.testpaper_manage.import.re_edit.edit_analysis: Edit Analysis
+course.testpaper_manage.import.re_edit.upload_analysis_attachment: Upload Analysis Attachment
+course.testpaper_manage.import.re_edit.finish_edit: Finish Edit
+course.testpaper_manage.import.re_edit.total_count: Total %count%
+course.testpaper_manage.import.re_edit.total_score: Total score %totalScore%
+course.testpaper_manage.import.re_edit.edit_title_hint: Edit the testpaper title here and enter up to 50 characters.
+course.testpaper_manage.import.re_edit.finish_import: Finish import
+course.testpaper_manage.import.re_edit.delete_attachment: Delete
+course.testpaper_manage.import.re_edit.batch_set_score: Batch set score
+course.testpaper_manage.import.re_edit.score_hint: Positive number less than 1000
+course.testpaper_manage.import.re_edit.miss_score: Miss Score
+course.testpaper_manage.import.re_edit.selected: 'Selected: '
+course.testpaper_manage.import.re_edit.edit_item: Edit
+course.testpaper_manage.import.re_edit.delete_item: Delete
+course.testpaper_manage.import.re_edit.add_item: Add
+course.testpaper_manage.import.re_edit.add_sub_item: Add Sub Question
+course.testpaper_manage.import.re_edit.material_score_hint: Sum of sub questions' score
+course.testpaper_manage.import.re_edit.new_question_title: Add new question
+course.testpaper_manage.import.re_edit.select_type: Select question type
+course.testpaper_manage.import.re_edit.uncertain_choice: Uncertain Choice
+course.testpaper_manage.import.re_edit.question_statistics: Question Statistics
+course.testpaper_manage.import.re_edit.batch_set_difficulty: Batch Set difficulty
+course.testpaper_manage.import.re_edit.question_list: Question list
+course.testpaper_manage.import.re_edit.batch_operate: Batch Operate
+course.testpaper_manage.import.re_edit.select_all: Select All
+course.testpaper_manage.import.re_edit.finish_batch_operate: Finish
+course.testpaper_manage.import.re_edit.answer: Answer
+course.testpaper_manage.import.re_edit.correct: Correct
+course.testpaper_manage.import.re_edit.wrong: Wrong
+course.testpaper_manage.import.re_edit.convert_hint: Can convert to
+course.testpaper_manage.import.re_edit.error_no_stem: Missing stem, please click "Edit" to set.
+course.testpaper_manage.import.re_edit.error_no_option: Missing option, please click "Edit" to set.
+course.testpaper_manage.import.re_edit.error_no_answer: Missing answer, please click "Edit" to set.
+course.testpaper_manage.import.re_edit.error_fill_no_answer: This blank missing answer, please click "Edit" to set.
 course.testpaper_manage.create: Add
 course.testpaper_manage.create.bread_crumbs: '<li><a href="%testpaperManageUrl%">Test paper''</a></li><li class="active">%name%</li>'
 course.testpaper_manage.create.content_title: 'Create testpaper'
@@ -2354,8 +2411,10 @@ user.register.not_receive_email_tips: "<h5>Not received a confirmation letter?</
 user.register.verify_success_tips: "after verification, you can： <ul>\n  <li><a href=\"%path%\">Back</a></li>\n  <li><a href=\"%homepage%\">Home</a></li>\n</ul>\n"
 user.register.emaill_not_useful_tips: "<h5>original mailbox is invalid?</h5> <a class=\"btn btn-primary\" href=\"%resetEmail%\">Rebind</a>\n"
 user.register.service_protocol: 'Service Agreements'
+user.register.privacy_policy: 'Privacy Policy'
 user.register.agree_terms: 'Agree terms and register'
 user.register.read_detail: 'Please read details'
+user.register.read_agree: 'I have read and agreed'
 user.register.user_service_protocol: 'User service agreement'
 user.register.reset_email: 'Reset email'
 user.register.reset_email.origin_email: 'Previous email address:'
@@ -5454,6 +5513,7 @@ admin.edu_cloud.edu_sms.enable_status: 'Enabled'
 admin.edu_cloud.edu_sms.operation: Action
 admin.edu_cloud.edu_sms.validation_type: Validation
 admin.edu_cloud.edu_sms.bind_mobile: 'Phone Binding'
+admin.edu_cloud.edu_sms.login: 'Login with sms'
 admin.edu_cloud.edu_sms.verification_code_tips: 'Your verification code is 123456 (do not divulge), this verification code within 30 minutes of input is valid.'
 admin.edu_cloud.edu_sms.singel_user: 'Single User'
 admin.edu_cloud.edu_sms.auto_singel_send: 'Automatically sent separately'
@@ -5706,12 +5766,19 @@ admin.user_auth.Setup_welcome_message.title: 'Title of the welcome message'
 admin.user_auth.Setup_welcome_message.content: 'Content of the welcome message'
 admin.user_auth.Setup_welcome_message.warning.help_block: 'Note: Content is limited to 1000 characters'
 admin.user_auth.Setup_welcome_message.as_recipient.help_block: 'Receiver''s username'
+admin.user_auth.protocol_settings: 'Protocol setting'
 admin.user_auth.Term_service_settings: 'Terms of service settings'
 admin.user_auth.Term_service_settings.Enable: 'Status of terms of service'
 admin.user_auth.Term_service_settings.open: 'Turned on'
 admin.user_auth.Term_service_settings.closed: Closed
 admin.user_auth.Term_service_settings.Enable.help_block: 'Users need to agree the terms to register if turned on'
 admin.user_auth.Term_service_settings.details: Terms
+admin.user_auth.privacy_policy_settings: 'Privacy policy settings'
+admin.user_auth.privacy_policy_settings.Enable: 'Status of privacy policy'
+admin.user_auth.privacy_policy_settings.open: 'Turned on'
+admin.user_auth.privacy_policy_settings.closed: 'Closed'
+admin.user_auth.privacy_policy_settings.Enable.help_block: 'Users need to agree the terms to register if turned on'
+admin.user_auth.privacy_policy_settings.details: 'Privacy Policy'
 admin.user_auth.Name_setting: Name
 admin.user_auth.Name_setting.user_name: 'Username'
 admin.user_auth.Name_setting.help_block: 'Note: After editing the site field, all the relevant field names will be changed accordingly to the edited name'
@@ -5861,6 +5928,11 @@ admin.setting_course.course_list_page_seq.help_block: 'Address: Domain names /co
 admin.setting_course.Prevent_copying_rich_text_doc: 'Image-text and document tasks anti copy'
 admin.setting_course.Prevent_copying_test_paper: 'Test paper anti copy'
 admin.setting_course.course_operation_mode: 'Course operation mode'
+admin.setting_course.course_comments_manage: 'Course commnets manage'
+admin.setting_course.course_review: 'Course review'
+admin.setting_course.course_question: 'Course question'
+admin.setting_course.course_thread: 'Course thread'
+admin.setting_course.course_note: 'Course note'
 admin.setting_course.course_operation_mode.free_try_view: 'Free preview / free task allows users who are not login to watch'
 admin.setting_course.course_operation_mode.free_try_view.help_block: 'If this setting is allowed, users not login (visitors) can watch the free preview or free tasks'
 admin.setting_course.course_operation_mode.allow_show_user_count: 'The number of student allowed to display in the course'
@@ -5893,6 +5965,12 @@ admin.setting_course.classroom.course_discount.help_block: 'When purchasing a cl
 admin.setting_course.classroom.classroom_list_default_seq: 'Default order of class list'
 admin.setting_course.classroom.classroom_list.help_block: 'Class list'
 admin.setting_course.classroom.classroom_list_default_seq.help_block: 'Address: Domain names /classroom/explore, anyone can view all published classes at this page. If you need to set class order, please go to the "site settings" - "Themes" - "Manage". Class order settings are only supported by ink-only theme and simplicity theme.'
+admin.setting_course.classroom.classroom_comments_manage: 'Classroom Comments Manage'
+admin.setting_course.classroom.classroom_review: 'Classroom review'
+admin.setting_course.classroom.classroom_thread: 'Classroom thread'
+admin.setting_course.classroom.classroom_note: 'Classroom note'
+admin.setting_course.open_course.open_course_comments_manage: 'Open Course Comments Manage'
+admin.setting_course.open_course.open_course_review: 'Open Course review'
 admin.setting_course.custom_chapter_name: Set chapter name
 admin.setting_course.custom_chapter_name_enabled_hint: After opening, add a chapter in the lesson management, the system will automatically generate the chapter name set as follows.
 admin.setting_wechat_auth.web_scan_login: Web Scan Login
@@ -6227,6 +6305,9 @@ admin.coin_model.tips: '1 Virtual coin balance can not be manually edited.<br>2 
 admin.coin_model.deduction_tips: '1 Virtual coin balance can not be manually edited.<br>2 <a href="%appCenterUrl%"> recharge cards </a>  or <a href="%appCenterUrl%"> Account recharge </a> plug-ins are required to recharge virtual coins.<br>3  Using mode switch will make the course prices changes according to the exchange rate<br>4 Course in promotions will not be affected<br>5 Virtual coin for deduction: When the site use CNY as payment currency, virtual coin can be used to deduct in certain portion.'
 admin.article_setting.name: 'Channel'
 admin.article_setting.pageNum: 'Articles per page'
+admin.article_setting.article_comments_manage: 'Articles comment manage'
+admin.article_setting.message_comments_manage: 'Message comment manage'
+admin.setting_course.article.article_comment: 'Article Comment'
 admin.article_setting.edit: 'Edit articles'
 admin.article_setting.title: 'Article headlines'
 admin.article_setting.category: Column
@@ -8721,6 +8802,22 @@ wechat.notification.template.lesson_add: 'Classmate, hello, the course has a new
 wechat.notification.template.charge_success: 'Dear customer, you have recharged successfully<br>Recharge type: cash recharge or study card<br>Recharge order number: [order number]<br>Recharge amount: [actual payment price]<br>Recharge time: [payment time]<br>Go and see the course~'
 wechat.notification.template.buy_success: 'Dear customer, you have paid successfully<br>Order details: [product name]<br>Order price: [Order price]<br>Order time: [payment time]<br>Member due date: none<br>Please go to view'
 
-
+# 移动端使用：课时任务(task)完成条件文案
+mobile.task.finish_tips.audio.end: audio end
+mobile.task.finish_tips.discuss.join: Post or respond to a topic in this course
+mobile.task.finish_tips.doc.time: 'At least learn %finishData% minutes'
+mobile.task.finish_tips.download.download: Downloaded materials
+mobile.task.finish_tips.exercise.submit: submitted an exercise
+mobile.task.finish_tips.flash.time: 'At least learn %finishData% minutes'
+mobile.task.finish_tips.homework.submit: Submit
+mobile.task.finish_tips.live.join: participated in the live broadcast
+mobile.task.finish_tips.ppt.end: Learn at the end page
+mobile.task.finish_tips.ppt.time: 'At least learn %finishData% minutes'
+mobile.task.finish_tips.testpapaer.submit: Submit
+mobile.task.finish_tips.testpapaer.score: 'Test score %finishData% points'
+mobile.task.finish_tips.text.time: 'At least learn %finishData% minutes'
+mobile.task.finish_tips.video.end: Learning to the end
+mobile.task.finish_tips.video.time: 'At least learn %finishData% minutes'
+classroom.joining_date.expired_tips: Classroom joining date expired
 
 

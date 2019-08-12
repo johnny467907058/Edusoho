@@ -44,7 +44,7 @@
     "bshaffer/oauth2-server-bundle": "v0.4",
     "xxtea/xxtea": "1.0.2",
     "cerdic/css-tidy": "1.5.5",
-    "codeages/biz-framework": "0.9.31",
+    "codeages/biz-framework": "0.9.32",
     "codeages/plugin-bundle": "0.1.21",
     "codeages/rest-api-client": "0.2.2",
     "codeages/biz-rate-limiter": "0.1.8",
@@ -55,7 +55,8 @@
     "codeages/qiqiuyun-php-sdk": "0.3.3",
     "phpdocumentor/reflection-docblock": "2.0.5",
     "codeages/biz-order-pay": "0.1.28",
-    "ramsey/uuid": "^2.9"
+    "ramsey/uuid": "^2.9",
+    "codeages/exam-parser": "dev-master"
   },
   "require-dev": {
     "sensio/generator-bundle": "3.0.11",
@@ -99,7 +100,7 @@
   "repositories": {
     "packagist": {
       "type": "composer",
-      "url": "https://packagist.laravel-china.org"
+      "url": "https://mirrors.aliyun.com/composer/"
     }
   }
 }
